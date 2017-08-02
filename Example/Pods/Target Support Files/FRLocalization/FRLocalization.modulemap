@@ -1,0 +1,6 @@
+framework module FRLocalization {
+  umbrella header "FRLocalization-umbrella.h"
+
+  export *
+  module * { export * }
+}

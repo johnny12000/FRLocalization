@@ -1,0 +1,16 @@
+PODS:
+  - FRLocalization (0.1.0)
+
+DEPENDENCIES:
+  - FRLocalization (from `../`)
+
+EXTERNAL SOURCES:
+  FRLocalization:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FRLocalization: c09769d6708d7af74497a1b23aba6e792ee6e67e
+
+PODFILE CHECKSUM: 002d2359e4534457def095c7a910bd83bf30b121
+
+COCOAPODS: 1.2.1
