@@ -13,6 +13,8 @@ let AppleLanguageKey = "AppleLanguages" //swiftlint:disable:this identifier_name
 /// Default language. English. If English is unavailable defaults to base localization.
 let DefaultLanguage = "en"
 
+let LocalizationChanged = "LocalizationChanged"
+
 /// Manager for localization features of the app.
 class LocalizationHelper: NSObject {
     
@@ -22,37 +24,7 @@ class LocalizationHelper: NSObject {
         self.userDefaults = userDefaults
     }
     
-    /// List available languages
-    /// - returns: Array of available languages.
-    func availableLanguages(_ excludeBase: Bool = true) -> [String] {
-        var availableLanguages = Bundle.main.localizations
-        // If excludeBase = true, don't include "Base" in available languages
-        if let indexOfBase = availableLanguages.index(of: "Base"), excludeBase == true {
-            availableLanguages.remove(at: indexOfBase)
-        }
-        return availableLanguages
-    }
-    
-    /// Current language
-    /// - returns: The current language.
-    func currentLanguage() -> String {
-        if let currentLanguages = userDefaults.object(forKey: AppleLanguageKey) as? [String],
-            let currentLanguage = currentLanguages.first {
-            return currentLanguage
-        }
-        return defaultLanguage()
-    }
-    
-    /// Change the current language
-    /// - parameter language: Desired language.
-    func setCurrentLanguage(_ language: String) {
-        let selectedLanguage = availableLanguages().contains(language) ? language : defaultLanguage()
-        if selectedLanguage != currentLanguage() {
-            userDefaults.set([language, currentLanguage()], forKey: AppleLanguageKey)
-            userDefaults.synchronize()
-        }
-    }
-    
+    static var defaultHelper: LocalizationHelper = LocalizationHelper()
     /// Default language
     /// - returns: The app's default language. String.
     func defaultLanguage() -> String {
@@ -60,7 +32,7 @@ class LocalizationHelper: NSObject {
         guard let preferredLanguage = Bundle.main.preferredLocalizations.first else {
             return DefaultLanguage
         }
-        let availableLanguages: [String] = self.availableLanguages()
+        let availableLanguages: [String] = self.availableLanguages
         if availableLanguages.contains(preferredLanguage) {
             defaultLanguage = preferredLanguage
         } else {
@@ -71,17 +43,58 @@ class LocalizationHelper: NSObject {
     
     /// Resets the current language to the default
     func resetCurrentLanguageToDefault() {
-        setCurrentLanguage(self.defaultLanguage())
+        currentLanguage = defaultLanguage()
     }
     
     /// Get the current language's display name for a language.
     /// - parameter language: Desired language.
     /// - returns: The localized string.
     func displayName(language: String) -> String {
-        let locale: NSLocale = NSLocale(localeIdentifier: currentLanguage())
+        let locale: NSLocale = NSLocale(localeIdentifier: currentLanguage)
         if let displayName = locale.displayName(forKey: NSLocale.Key.identifier, value: language) {
             return displayName
         }
         return String()
+    }
+    
+    var currentLanguageWithoutLocale: String {
+        let index = currentLanguage.index(currentLanguage.startIndex, offsetBy: 2)
+        return currentLanguage.substring(to: index)
+    }
+    
+    var appleLanguages: [String] {
+        return userDefaults.object(forKey: AppleLanguageKey) as? [String] ?? []
+    }
+    
+    var availableLanguages: [String] {
+        var availableLanguages = Bundle.main.localizations
+        if let indexOfBase = availableLanguages.index(of: "Base") {
+            availableLanguages.remove(at: indexOfBase)
+        }
+        return availableLanguages
+    }
+    
+    var currentLanguage: String {
+        get {
+            for language in appleLanguages {
+                if availableLanguages.contains(language) {
+                    return language
+                }
+            }
+            
+            return defaultLanguage()
+        }
+        set {
+            if newValue != currentLanguage && availableLanguages.contains(newValue)  {
+                var appleLanguagesArray = appleLanguages
+                if let index = appleLanguagesArray.index(of: newValue) {
+                    appleLanguagesArray.remove(at: index)
+                }
+                appleLanguagesArray.insert(newValue, at: 0)
+                userDefaults.set(appleLanguagesArray, forKey: AppleLanguageKey)
+                userDefaults.synchronize()
+                NotificationCenter.default.post(name: NSNotification.Name(LocalizationChanged), object: nil)
+            }
+        }
     }
 }

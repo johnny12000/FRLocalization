@@ -17,6 +17,11 @@
 		992D4AAE9D9170109ABE1E2ED0232336 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		A2D7D21C241068F0D4EFAE5DD194AFDF /* Pods-FRLocalization_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB697F0501A7BB4DBA9606E92DEFB16 /* Pods-FRLocalization_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AF6F5F77A6D1A000C669F24C276398AB /* LocalizationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE070BAB0951EA41825267B0483EF97 /* LocalizationHelper.swift */; };
+		B24D562B1F39AEA700D6780F /* BundleUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D56261F39AEA700D6780F /* BundleUtilities.swift */; };
+		B24D562C1F39AEA700D6780F /* UIApplicationDelegateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D56271F39AEA700D6780F /* UIApplicationDelegateUtilities.swift */; };
+		B24D562D1F39AEA700D6780F /* UIApplicationUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D56281F39AEA700D6780F /* UIApplicationUtilities.swift */; };
+		B24D562E1F39AEA700D6780F /* UILabelUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D56291F39AEA700D6780F /* UILabelUtilities.swift */; };
+		B24D562F1F39AEA700D6780F /* UITextFieldUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D562A1F39AEA700D6780F /* UITextFieldUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		7D2D652150ABC6A1C9FF1703CA526D84 /* Pods-FRLocalization_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FRLocalization_Tests.modulemap"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A04520D320F0C8426A076891825EFC73 /* FRLocalization-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FRLocalization-umbrella.h"; sourceTree = "<group>"; };
+		B24D56261F39AEA700D6780F /* BundleUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleUtilities.swift; sourceTree = "<group>"; };
+		B24D56271F39AEA700D6780F /* UIApplicationDelegateUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationDelegateUtilities.swift; sourceTree = "<group>"; };
+		B24D56281F39AEA700D6780F /* UIApplicationUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationUtilities.swift; sourceTree = "<group>"; };
+		B24D56291F39AEA700D6780F /* UILabelUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelUtilities.swift; sourceTree = "<group>"; };
+		B24D562A1F39AEA700D6780F /* UITextFieldUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldUtilities.swift; sourceTree = "<group>"; };
 		B7A256875C77E90F6A4E458AB086262E /* Pods-FRLocalization_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-FRLocalization_Example.modulemap"; sourceTree = "<group>"; };
 		BC3468FF77D016A3499418D6EB26F142 /* FRLocalization-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FRLocalization-prefix.pch"; sourceTree = "<group>"; };
 		BD4B93C67A9828BA482F2CE67E6F1DD4 /* Pods-FRLocalization_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FRLocalization_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +184,11 @@
 		BF1A3A94195CC8FFC7848612BB44F50C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B24D56261F39AEA700D6780F /* BundleUtilities.swift */,
+				B24D56271F39AEA700D6780F /* UIApplicationDelegateUtilities.swift */,
+				B24D56281F39AEA700D6780F /* UIApplicationUtilities.swift */,
+				B24D56291F39AEA700D6780F /* UILabelUtilities.swift */,
+				B24D562A1F39AEA700D6780F /* UITextFieldUtilities.swift */,
 				1DE070BAB0951EA41825267B0483EF97 /* LocalizationHelper.swift */,
 			);
 			path = Classes;
@@ -345,8 +360,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B24D562C1F39AEA700D6780F /* UIApplicationDelegateUtilities.swift in Sources */,
 				03A68B5E5F174C69AAB02734A4EAEB5F /* FRLocalization-dummy.m in Sources */,
+				B24D562B1F39AEA700D6780F /* BundleUtilities.swift in Sources */,
+				B24D562E1F39AEA700D6780F /* UILabelUtilities.swift in Sources */,
+				B24D562D1F39AEA700D6780F /* UIApplicationUtilities.swift in Sources */,
 				AF6F5F77A6D1A000C669F24C276398AB /* LocalizationHelper.swift in Sources */,
+				B24D562F1F39AEA700D6780F /* UITextFieldUtilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
