@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 extension UIApplication {
-    
+
     class var isRTL: Bool {
         return UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
     }
-    
-    var cstm_userInterfaceLayoutDirection : UIUserInterfaceLayoutDirection {
+
+    var cstm_userInterfaceLayoutDirection: UIUserInterfaceLayoutDirection {
         get {
             var direction = UIUserInterfaceLayoutDirection.leftToRight
             //            if L102Language.currentAppleLanguage() == "ar" {

@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 extension Bundle {
-    
+
     func specialLocalizedString(forKey key: String, value: String?, table tableName: String?) -> String {
         var bundle: Bundle!
         bundle = self
-        
+
         if bundle == Bundle.main {
             let currentLanguage = LocalizationHelper.defaultHelper.currentLanguage
             let currengLanguageWithoutLocale = LocalizationHelper.defaultHelper.currentLanguageWithoutLocale

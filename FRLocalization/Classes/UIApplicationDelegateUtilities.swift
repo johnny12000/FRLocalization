@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 extension UIApplicationDelegate {
-    
+
     /// Overrides the selectors required for change of localization in run-time.
     func overrideLocalizationSelectors() {
-        
+
         swizzleMethod(cls: Bundle.self,
                       originalSelector: #selector(Bundle.localizedString(forKey:value:table:)),
                       overrideSelector: #selector(Bundle.specialLocalizedString(forKey:value:table:)))
@@ -34,11 +34,11 @@ extension UIApplicationDelegate {
 /// - parameter originalSelector: Selector to replace
 /// - parameter overrideSelector: Replace selector
 func swizzleMethod(cls: AnyClass, originalSelector: Selector, overrideSelector: Selector) {
-    let origMethod: Method = class_getInstanceMethod(cls, originalSelector);
-    let overrideMethod: Method = class_getInstanceMethod(cls, overrideSelector);
+    let origMethod: Method = class_getInstanceMethod(cls, originalSelector)
+    let overrideMethod: Method = class_getInstanceMethod(cls, overrideSelector)
     if (class_addMethod(cls, originalSelector, method_getImplementation(overrideMethod), method_getTypeEncoding(overrideMethod))) {
-        class_replaceMethod(cls, overrideSelector, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+        class_replaceMethod(cls, overrideSelector, method_getImplementation(origMethod), method_getTypeEncoding(origMethod))
     } else {
-        method_exchangeImplementations(origMethod, overrideMethod);
+        method_exchangeImplementations(origMethod, overrideMethod)
     }
 }
