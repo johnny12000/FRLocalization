@@ -13,7 +13,7 @@ let AppleLanguageKey = "AppleLanguages" //swiftlint:disable:this identifier_name
 /// Default language. English. If English is unavailable defaults to base localization.
 let DefaultLanguage = "en"
 
-let LocalizationChanged = "LocalizationChanged"
+public let LocalizationChanged = "LocalizationChanged"
 
 /// Manager for localization features of the app.
 public class LocalizationHelper: NSObject {

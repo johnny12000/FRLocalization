@@ -12,7 +12,7 @@ import UIKit
 extension UIApplicationDelegate {
 
     /// Overrides the selectors required for change of localization in run-time.
-    func overrideLocalizationSelectors() {
+    public func overrideLocalizationSelectors() {
 
         swizzleMethod(cls: Bundle.self,
                       originalSelector: #selector(Bundle.localizedString(forKey:value:table:)),
