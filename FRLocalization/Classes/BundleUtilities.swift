@@ -11,6 +11,11 @@ import UIKit
 
 extension Bundle {
 
+    /// Specialized method for localization on change of localization.
+    /// - parameter forKey: Key
+    /// - parameter value:  Value
+    /// - parameter table:  Table
+    /// - returns: Localized string.
     func specialLocalizedString(forKey key: String, value: String?, table tableName: String?) -> String {
         var bundle: Bundle!
         bundle = self

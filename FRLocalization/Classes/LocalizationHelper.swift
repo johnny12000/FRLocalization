@@ -8,23 +8,27 @@
 
 import UIKit
 
+/// Apple language key
 let AppleLanguageKey = "AppleLanguages" //swiftlint:disable:this identifier_name
 
 /// Default language. English. If English is unavailable defaults to base localization.
-let DefaultLanguage = "en"
+let DefaultLanguage = "en" //swiftlint:disable:this identifier_name
 
-public let LocalizationChanged = "LocalizationChanged"
+/// Localization change notification name
+public let LocalizationChanged = "LocalizationChanged" //swiftlint:disable:this identifier_name
 
 /// Manager for localization features of the app.
 public class LocalizationHelper: NSObject {
 
     let userDefaults: UserDefaults
+    public static var defaultHelper: LocalizationHelper = LocalizationHelper()
 
-    init(userDefaults: UserDefaults = UserDefaults.standard) {
+    /// Initialize the localization helper class.
+    /// - parameter userDefaults: Defaults dictionary to use in localization
+    /// - returns: LocalizationHelper instance.
+    public init(userDefaults: UserDefaults = UserDefaults.standard) {
         self.userDefaults = userDefaults
     }
-
-    public static var defaultHelper: LocalizationHelper = LocalizationHelper()
 
     /// Default language
     /// - returns: The app's default language. String.
@@ -58,15 +62,18 @@ public class LocalizationHelper: NSObject {
         return String()
     }
 
+    /// Current localization without locale data (e.g. 'en' for 'en-US')
     public var currentLanguageWithoutLocale: String {
         let index = currentLanguage.index(currentLanguage.startIndex, offsetBy: 2)
         return currentLanguage.substring(to: index)
     }
 
+    /// Available languages in Settings -> Language & Region
     public var appleLanguages: [String] {
         return userDefaults.object(forKey: AppleLanguageKey) as? [String] ?? []
     }
 
+    /// Available localizations in the application
     public var availableLanguages: [String] {
         var availableLanguages = Bundle.main.localizations
         if let indexOfBase = availableLanguages.index(of: "Base") {
@@ -75,6 +82,7 @@ public class LocalizationHelper: NSObject {
         return availableLanguages
     }
 
+    /// Current localization language. If localization is not found for available apple languages then default language.
     public var currentLanguage: String {
         get {
             for language in appleLanguages {
