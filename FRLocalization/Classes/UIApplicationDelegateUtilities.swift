@@ -19,7 +19,7 @@ extension UIApplicationDelegate {
                       overrideSelector: #selector(Bundle.specialLocalizedString(forKey:value:table:)))
         swizzleMethod(cls: UIApplication.self,
                       originalSelector: #selector(getter: UIApplication.userInterfaceLayoutDirection),
-                      overrideSelector: #selector(getter: UIApplication.cstm_userInterfaceLayoutDirection))
+                      overrideSelector: #selector(getter: UIApplication.specialUserInterfaceLayoutDirection))
         swizzleMethod(cls: UITextField.self,
                       originalSelector: #selector(UITextField.layoutSubviews),
                       overrideSelector: #selector(UITextField.localizedLayoutSubview))
@@ -34,6 +34,7 @@ extension UIApplicationDelegate {
 /// - parameter originalSelector: Selector to replace
 /// - parameter overrideSelector: Replace selector
 func swizzleMethod(cls: AnyClass, originalSelector: Selector, overrideSelector: Selector) {
+    //swiftlint:disable line_length
     let origMethod: Method = class_getInstanceMethod(cls, originalSelector)
     let overrideMethod: Method = class_getInstanceMethod(cls, overrideSelector)
     if (class_addMethod(cls, originalSelector, method_getImplementation(overrideMethod), method_getTypeEncoding(overrideMethod))) {
@@ -41,4 +42,5 @@ func swizzleMethod(cls: AnyClass, originalSelector: Selector, overrideSelector: 
     } else {
         method_exchangeImplementations(origMethod, overrideMethod)
     }
+    //swiftlint:enable line_length
 }

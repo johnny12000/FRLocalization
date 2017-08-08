@@ -15,13 +15,11 @@ extension UIApplication {
         return UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
     }
 
-    var cstm_userInterfaceLayoutDirection: UIUserInterfaceLayoutDirection {
-        get {
+    var specialUserInterfaceLayoutDirection: UIUserInterfaceLayoutDirection {
             var direction = UIUserInterfaceLayoutDirection.leftToRight
             //            if L102Language.currentAppleLanguage() == "ar" {
             //                direction = .rightToLeft
             //            }
             return direction
-        }
     }
 }
