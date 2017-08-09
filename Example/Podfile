@@ -4,6 +4,7 @@ target 'FRLocalization_Example' do
   pod 'FRLocalization', :path => '../'
 
   target 'FRLocalization_Tests' do
+    pod 'FRLocalization', :path => '../'
     inherit! :search_paths
 
     
