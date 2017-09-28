@@ -35,8 +35,8 @@ extension UIApplicationDelegate {
 /// - parameter overrideSelector: Replace selector
 func swizzleMethod(cls: AnyClass, originalSelector: Selector, overrideSelector: Selector) {
     //swiftlint:disable line_length
-    let origMethod: Method = class_getInstanceMethod(cls, originalSelector)
-    let overrideMethod: Method = class_getInstanceMethod(cls, overrideSelector)
+    let origMethod: Method = class_getInstanceMethod(cls, originalSelector)!
+    let overrideMethod: Method = class_getInstanceMethod(cls, overrideSelector)!
     if (class_addMethod(cls, originalSelector, method_getImplementation(overrideMethod), method_getTypeEncoding(overrideMethod))) {
         class_replaceMethod(cls, overrideSelector, method_getImplementation(origMethod), method_getTypeEncoding(origMethod))
     } else {

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UITextField {
-    public func localizedLayoutSubview() {
+    @objc public func localizedLayoutSubview() {
         self.localizedLayoutSubview()
         if self.tag <= 0 {
             if UIApplication.isRTL {

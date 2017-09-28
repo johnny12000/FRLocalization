@@ -15,8 +15,8 @@ extension UIApplication {
         return UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft
     }
 
-    var specialUserInterfaceLayoutDirection: UIUserInterfaceLayoutDirection {
-            var direction = UIUserInterfaceLayoutDirection.leftToRight
+    @objc var specialUserInterfaceLayoutDirection: UIUserInterfaceLayoutDirection {
+            let direction = UIUserInterfaceLayoutDirection.leftToRight
             //            if L102Language.currentAppleLanguage() == "ar" {
             //                direction = .rightToLeft
             //            }

@@ -11,7 +11,7 @@ import UIKit
 
 extension UILabel {
 
-    public func localizedLayoutSubview() {
+    @objc public func localizedLayoutSubview() {
         self.localizedLayoutSubview()
         if self.isKind(of: NSClassFromString("UITextFieldLabel")!) {
             return // handle special case with uitextfields

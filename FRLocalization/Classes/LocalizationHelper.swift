@@ -65,7 +65,7 @@ public class LocalizationHelper: NSObject {
     /// Current localization without locale data (e.g. 'en' for 'en-US')
     public var currentLanguageWithoutLocale: String {
         let index = currentLanguage.index(currentLanguage.startIndex, offsetBy: 2)
-        return currentLanguage.substring(to: index)
+        return String(currentLanguage[currentLanguage.startIndex ..< index])
     }
 
     /// Available languages in Settings -> Language & Region
