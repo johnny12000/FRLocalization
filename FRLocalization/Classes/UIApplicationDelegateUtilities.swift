@@ -12,20 +12,23 @@ import UIKit
 extension UIApplicationDelegate {
 
     /// Overrides the selectors required for change of localization in run-time.
-    public func overrideLocalizationSelectors() {
+    /// - parameter shouldOverrideLayout: Override methods used for layout localization
+    public func overrideLocalizationSelectors(shouldOverrideLayout: Bool = true) {
 
         swizzleMethod(cls: Bundle.self,
                       originalSelector: #selector(Bundle.localizedString(forKey:value:table:)),
                       overrideSelector: #selector(Bundle.specialLocalizedString(forKey:value:table:)))
-        swizzleMethod(cls: UIApplication.self,
-                      originalSelector: #selector(getter: UIApplication.userInterfaceLayoutDirection),
-                      overrideSelector: #selector(getter: UIApplication.specialUserInterfaceLayoutDirection))
-        swizzleMethod(cls: UITextField.self,
-                      originalSelector: #selector(UITextField.layoutSubviews),
-                      overrideSelector: #selector(UITextField.localizedLayoutSubview))
-        swizzleMethod(cls: UILabel.self,
-                      originalSelector: #selector(UILabel.layoutSubviews),
-                      overrideSelector: #selector(UILabel.localizedLayoutSubview))
+        if shouldOverrideLayout {
+            swizzleMethod(cls: UIApplication.self,
+                          originalSelector: #selector(getter: UIApplication.userInterfaceLayoutDirection),
+                          overrideSelector: #selector(getter: UIApplication.specialUserInterfaceLayoutDirection))
+            swizzleMethod(cls: UITextField.self,
+                          originalSelector: #selector(UITextField.layoutSubviews),
+                          overrideSelector: #selector(UITextField.localizedLayoutSubview))
+            swizzleMethod(cls: UILabel.self,
+                          originalSelector: #selector(UILabel.layoutSubviews),
+                          overrideSelector: #selector(UILabel.localizedLayoutSubview))
+        }
     }
 }
 
