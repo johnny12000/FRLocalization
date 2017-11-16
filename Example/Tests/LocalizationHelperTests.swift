@@ -41,7 +41,7 @@ class LocalizationHelperTests: XCTestCase {
         localizationHelper.userDefaults.synchronize()
         localizationHelper.currentLanguage = "en"
         let result = localizationHelper.userDefaults.value(forKey: "AppleLanguages") as? [String]
-        XCTAssert(result?.first == "en")
+        XCTAssert(result?.first == "fr")
     }
     
     func testDefaultLanguage() {

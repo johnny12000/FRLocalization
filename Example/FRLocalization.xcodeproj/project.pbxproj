@@ -13,7 +13,6 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		9DCAB60121EEB9CDEDE8AFF0 /* Pods_FRLocalization_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28F76BB2A999ABC706E266F2 /* Pods_FRLocalization_Tests.framework */; };
 		B2EE83441F3B040100A1A6B2 /* LocalizationHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EE83431F3B040100A1A6B2 /* LocalizationHelperTests.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* FRLocalization_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FRLocalization_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6C4EF76E4742BE269DC00633 /* Pods-FRLocalization_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRLocalization_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FRLocalization_Tests/Pods-FRLocalization_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7516B3FAF3E19D2979D3F1D2 /* Pods_FRLocalization_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FRLocalization_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D30C0E27EEF85638BB5352 /* FRLocalization.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FRLocalization.podspec; path = ../FRLocalization.podspec; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				B2EE83431F3B040100A1A6B2 /* LocalizationHelperTests.swift */,
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -376,7 +373,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2EE83441F3B040100A1A6B2 /* LocalizationHelperTests.swift in Sources */,
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
