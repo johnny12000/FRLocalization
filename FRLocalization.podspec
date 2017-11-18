@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'FRLocalization'
   s.version          = '0.2.0'
-  s.summary          = 'A short description of FRLocalization.'
+  s.summary          = 'Localization made easier'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Easily add feature to change app localization from the app itself.
                        DESC
 
   s.homepage         = 'https://github.com/johnny12000/FRLocalization'
